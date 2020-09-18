@@ -20,6 +20,7 @@ import { Container, Title, BackToSignIn, BackToSignInText } from './styles';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
 import getValidationErrors from '../../utils/getValidationErrors';
+import api from '../../services/api';
 
 interface SingUpFormData {
   name: string;
@@ -49,9 +50,9 @@ const SingUp: React.FC = () => {
         abortEarly: false,
       });
 
-      // await api.post('/users', data);
+      await api.post('/users', data);
 
-      // history.push('/');
+      navigation.goBack();
 
       Alert.alert(
         'Cadastro realizado com sucesso',
